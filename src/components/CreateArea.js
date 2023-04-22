@@ -1,12 +1,37 @@
-export default function CreateArea() {
+import { useState } from "react";
 
-    return (
-        <div>
-          <form>
-            <input name="title" placeholder="Title" />
-            <textarea name="content" placeholder="Take a note..." rows="3" />
-            <button>Add</button>
-          </form>
-        </div>
-      );
+export default function CreateArea() {
+  const [note, setNote] = useState({
+    title: "",
+    content: "",
+  });
+
+  function handleChange(event) {
+    const {name, value} = event.target
+
+    setNote({
+        ...note,
+        [name]: value
+    })
+  }
+  return (
+    <div>
+      <form>
+        <input
+          onChange={handleChange}
+          name="title"
+          placeholder="Title"
+          value={note.title}
+        />
+        <textarea
+          value={note.content}
+          onChange={handleChange}
+          name="content"
+          placeholder="Take a note..."
+          rows="3"
+        />
+        <button>Add</button>
+      </form>
+    </div>
+  );
 }
