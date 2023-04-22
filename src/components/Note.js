@@ -4,6 +4,7 @@ export default function Note() {
         <div className="note">
             <h1>This is the title</h1>
             <p>This is the content</p>
+            <button>DELETE</button>
         </div>
     )
 }
