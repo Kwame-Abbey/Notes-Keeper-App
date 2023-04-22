@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-export default function CreateArea({ onAdd}) {
+export default function CreateArea({ onAdd }) {
   const [note, setNote] = useState({
     title: "",
     content: "",
   });
 
   function handleChange(event) {
-    const {name, value} = event.target
+    const { name, value } = event.target;
 
     setNote({
-        ...note,
-        [name]: value
-    })
+      ...note,
+      [name]: value,
+    });
   }
   return (
     <div>
@@ -30,9 +30,18 @@ export default function CreateArea({ onAdd}) {
           placeholder="Take a note..."
           rows="3"
         />
-        <button onClick={() => {
-            onAdd(note)
-        }}>Add</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            onAdd(note);
+            setNote({
+              title: "",
+              content: "",
+            });
+          }}
+        >
+          Add
+        </button>
       </form>
     </div>
   );
