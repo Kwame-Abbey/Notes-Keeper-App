@@ -1,4 +1,4 @@
-export default function Note({ title, content}) {
+export default function Note({ title, content, id}) {
 
     return (
         <div className="note">

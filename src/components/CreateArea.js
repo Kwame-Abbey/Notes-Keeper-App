@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CreateArea() {
+export default function CreateArea({ onAdd}) {
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -30,7 +30,9 @@ export default function CreateArea() {
           placeholder="Take a note..."
           rows="3"
         />
-        <button>Add</button>
+        <button onClick={() => {
+            onAdd(note)
+        }}>Add</button>
       </form>
     </div>
   );
