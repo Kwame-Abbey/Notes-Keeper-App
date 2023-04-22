@@ -1,3 +1,5 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+
 export default function Note({ title, content, id, onDelete}) {
 
     return (
@@ -6,7 +8,9 @@ export default function Note({ title, content, id, onDelete}) {
             <p>{content}</p>
             <button onClick={() => {
                 onDelete(id)
-            }}>DELETE</button>
+            }}>
+                <DeleteIcon />
+            </button>
         </div>
     )
 }

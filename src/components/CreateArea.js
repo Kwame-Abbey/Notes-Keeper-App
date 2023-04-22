@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function CreateArea({ onAdd }) {
   const [note, setNote] = useState({
@@ -15,8 +18,8 @@ export default function CreateArea({ onAdd }) {
     });
   }
   return (
-    <div>
-      <form>
+    <div >
+      <form className="create-note">
         <input
           onChange={handleChange}
           name="title"
@@ -30,7 +33,8 @@ export default function CreateArea({ onAdd }) {
           placeholder="Take a note..."
           rows="3"
         />
-        <button
+        <Zoom in={true}>
+        <Fab
           onClick={(e) => {
             e.preventDefault();
             onAdd(note);
@@ -40,8 +44,10 @@ export default function CreateArea({ onAdd }) {
             });
           }}
         >
-          Add
-        </button>
+          <AddIcon />
+        </Fab>
+        </Zoom>
+        
       </form>
     </div>
   );
